@@ -69,7 +69,7 @@ Cursor Enhancement
 ## Notes on Design Choices
 - Referencing to the social objective, the control of the ship (sail rope and wheel) and cannons are intentionally scattered around the deck to encourage cooperation and communication between players. One player can not do it all by himself at the same time.  
 - The sailing rope and steer wheel was originally interacted by 3D cursor dragging, as a cursor enhancement, yet turn out to be quite awful to manipulate. So I decided to made the trade-off and and go back to original WASD control.  
-- Cannons are designed with no aiming support, to both fit the genre, and let player enjoy shooting tons of cannon balls.  
+- Cannons are designed with no aiming support, to both fit the genre, and to let player enjoy the happy time of bullet hail shooting without careful aiming.  
 
 
 ## Noticed Issue  
