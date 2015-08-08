@@ -5,9 +5,9 @@ For Assignment 1, I achieved the 3D cursor as described movement behaviour and s
 For Assignment 2, I developed a multiplayer ship sailing experience based on the 3D cursor interaction.  
 
 Build Location  
-  Assignment 1 - 3D Cursor  
+  - Assignment 1 - 3D Cursor  
 	/Builds/AltspaceCursor.zip    
-  Assignment 2 - Pirate Ocean  
+  - Assignment 2 - Pirate Ocean  
 	/Builds/PirateOcean.zip  
 
 Scene and Script Location  
@@ -15,24 +15,25 @@ Scene and Script Location
   - Scene  
       /Main.Scene  
   - Scripts  
-	  Modified 3D Cursor Script  
+	  - Modified 3D Cursor Script  
 		/Altspace/Scripts/SphericalCursorModule.cs  
-	  Custom shader with Self-Illumn and always on top  
+	  - Custom shader with Self-Illumn and always on top  
 		/Altspace/Shaders/CursorShader.shader  
 	
-	Assignment  2 - Pirate Ocean  
-	- Scene  
-		  /PirateShip/Scene/PirateOcean  
-	- Scripts  
-		  /PirateShip/Scripts  
+Assignment  2 - Pirate Ocean  
+  - Scene  
+		/PirateShip/Scene/PirateOcean  
+
+- Scripts  
+		/PirateShip/Scripts  
 
 		  
 		  
 # Assignment 2 - Introduction
-Beyond the cursor enhancement, I tried to think of a unique experience that VR social platform like AltspaceVR could deliver. 
+Beyond the cursor enhancement, I tried to come up with a unique experience that VR social platform such AltspaceVR could deliver, and aimed to develop an interactive experience to reinforce such unique VR social experience. 
 - The goal for a social platform is to hangout and get relaxed interactions and communications with friends
 - the unique experience for VR is the ability to bring user into immersive environments that impossible in real life. 
-Thus, I tried combine these two features and developed this multiplayer sailing experience. Players can dive in to enjoy the beautiful ocean environment and have some fun working together to get the ship sail, or even get some pirate ship blow up!
+Thus, I tried combine these two features and developed this multiplayer sailing experience. Players can dive in to enjoy the beautiful ocean environment and have some fun working together to get the ship sail, or even get some pirate ship blowed up!
 
 Experience Goal
 - Just hangout with friends, have some fun sailing the ship, enjoy the ocean and blow some pirate ship away!
