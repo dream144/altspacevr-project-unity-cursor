@@ -1,6 +1,8 @@
 # AltspaceVR Unity Cursor - Xin Ning  
 
 ## Brief  
+This project is built on Unity 4.6.1
+
 For Assignment 1, I achieved the 3D cursor as described movement behaviour and shader   
 For Assignment 2, I developed a multiplayer ship sailing experience based on the 3D cursor interaction.  
 
