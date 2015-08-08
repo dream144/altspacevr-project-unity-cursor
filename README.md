@@ -1,93 +1,105 @@
-# AltspaceVR Programming Project - Unity Cursor
+# AltspaceVR Programming Project - Unity Cursor - Xin Ning  
 
-## Instructions
+## Brief  
+For Assignment 1, I achieved the 3D cursor as described movement behaviour and shader   
+For Assignment 2, I developed a multiplayer ship sailing experience based on the 3D cursor interaction.  
 
-Finish the implementation of the 3D cursor in an example Unity application, and then build some enhancements using the cursor.
+Build Location  
+  Assignment 1 - 3D Cursor  
+	/Builds/AltspaceCursor.zip    
+  Assignment 2 - Pirate Ocean  
+	/Builds/PirateOcean.zip  
 
-## Goals
+Scene and Script Location  
+  Assignment 1 - 3D Cursor  
+  - Scene  
+      /Main.Scene  
+  - Scripts  
+	  Modified 3D Cursor Script  
+		/Altspace/Scripts/SphericalCursorModule.cs  
+	  Custom shader with Self-Illumn and always on top  
+		/Altspace/Shaders/CursorShader.shader  
+	
+	Assignment  2 - Pirate Ocean  
+	- Scene  
+		  /PirateShip/Scene/PirateOcean  
+	- Scripts  
+		  /PirateShip/Scripts  
 
-We use this test to get a sense of your coding style and to how you creatively solve both a concrete problem and an abstract one. When we receive your project, here is what we will be asking ourselves:
+		  
+		  
+# Assignment 2 - Introduction
+Beyond the cursor enhancement, I tried to think of a unique experience that VR social platform like AltspaceVR could deliver. 
+- The goal for a social platform is to hangout and get relaxed interactions and communications with friends
+- the unique experience for VR is the ability to bring user into immersive environments that impossible in real life. 
+Thus, I tried combine these two features and developed this multiplayer sailing experience. Players can dive in to enjoy the beautiful ocean environment and have some fun working together to get the ship sail, or even get some pirate ship blow up!
 
-- Is their cursor correct? Does it look and act like the provided example build?
+Experience Goal
+- Just hangout with friends, have some fun sailing the ship, enjoy the ocean and blow some pirate ship away!
 
-- Do the enhancements implemented work well?
-
-- Are the enhancements creative, challenging to implement, and just plain cool?
-
-- Is the code well structured, easy to read and understand, and organized well?
-
-To work on the project:
-
-- Fork and clone the repo.
-- Open up the Unity project in `Project`, and work there. This project was built in Unity 4.6, so if you are using Unity 5 you may need to migrate the project or [download and install 4.6](https://unity3d.com/get-unity/download/archive).
-
-# Part 1 - 3D Cursor
-
-If you’ve tried AltspaceVR, you’ll have noticed that our user interface uses a 3D cursor. This cursor approach allows the user to select objects in the scene, or interact with 2D web panels. For this part of the project, you’ll be implementing a variant of the 3D cursor algorithm we’ve developed for AltspaceVR. You can find an example build showing the expected behavior in the `Builds` folder of the repo.
-
-The example project has most everything you need **except** for the logic to drive the cursor off of the mouse, and the shader for the cursor. The script you will need to implement is the `SphericalCursorModule.cs` script that is on the `Main Camera` under the `First Person Controller`.
-
-The cursor is represented by a sphere, found in the GameObject `CursorMesh` under the `Cursor` GameObject under the camera. The job of the `SphericalCursorModule` script is to update the position and scale of the cursor GameObject based upon the movement of the mouse and a raycast to find which object the cursor is over.
+Cursor Enhancement
+- Player is able to select and use objects, interact with them in network multiplayer environment
 
 
-
-Here are the defining features of the cursor algorithm that you should replicate:
-
-- The state of the cursor is represented as spherical coordinates on a sphere surrounding the player. So, as the user moves their mouse, you should be updating the coordinates of the cursor in this space.
-
-- Each frame, a raycast from the eye is made based on the spherical coordinates, against objects in a layer mask of all the selectable objects in the scene. It this project, layer #8 contains all the objects. The proper raycast mask is defined for you in the `ColliderMask` field in the code. (Note that this scene just has simple box colliders, so your actual collision points may not lie on the objects' surfaces.)
-  - If there is no collision, the cursor geometry should be scaled to the DefaultCursorScale and positioned on the surface of a large virtual sphere of radius SphereRadius surrounding the player.
-  - If there **is** a collision, the cursor geometry should be positioned at the hit point and scaled uniformly based upon the distance to the hit, using the equation:
-    - `(distanceToObject * DistanceScaleFactor + 1.0f) / 2.0f`
-      - `distanceToObject`: Distance to the hit point
-      - `DistanceScaleFactor`: Tuning factor, set on the script properties panel
-
-  By scaling the cursor this way, you get a nice scale effect where it doesn’t feel quite like a real sphere in the scene, but a flat 2d cursor that gets slightly smaller with distance.
-
-  This approach works well in VR. The cursor is always either sitting on the surface of an object, or it is far away on a virtual sphere, so there are no convergence issues. (For example, having the cursor float in free space near the player’s head is a sure way to cause discomfort.)
-
-- The diffuse shader included by default on the cursor will cause the cursor to appear like a normal sphere which will be depth sorted and shaded based upon lights. You should write and attach a custom shader that does two things:
-  - Draws the cursor on top of all other geometry.
-  - Draws the cursor as flat and bright, so it appears more like a circle than a sphere. (Hint: you should ignore lights in the scene.)
-
-- Sensitivity of the cursor to mouse movement should be adjustable via the `Sensitivity` property on the script.
-
-For this part of the project, please **do not** include 3rd party code. You can reference 3rd party code of course, but any code you write for the cursor should be your own. (We'll be asking you how it works!)
-
-# Part 2 - Enhancements
-
-Now that you have a working cursor, and can point at and select objects, now build some functionality that might be fun in VR that showcases your skills and creativity. This is the open ended part of the project, and is your chance to blow us away! 
-
-Some potential ideas:
-
-- Use the cursor to manipulate objects, and add multiplayer!
-
-- Improve the cursor to be more usable.
-
-- Add some custom shaders, behaviors, or effects to objects to show off your graphics chops.
-
-- Add a control scheme or widgets that let the user do stuff with objects.
-
-- Create some kind of interactive game.
-
-- Anything you want! Got some new Unity technique you want to try? Use this as an excuse! Don’t feel limited by the sample scene, feel free to create a new scene and leverage your cursor code in some novel way.
-
-Feel free to use 3rd party code or assets for this part of the project, keeping in mind our assessment criteria (noted at the top of the README.)
-
-## Deliverable
-
-In your repo, you should clobber this README file with your own describing your project. Any instructions or known issues should be documented in the README as well.
-
-**Please be sure to commit a working build to your repo**, just in case we have trouble getting your project to build.
-
-E-mail us a link to your Github repo to `projects@altvr.com`. Please include your contact information, and if you haven't submitted it to us already, your resume and cover letter. 
-
-We hope you have fun working on the project, and we can't wait to see what you come up with!
+## Control Instruction
+- Start a Game
+  To Start a game
+    Either start the application, and click Server to host a server. Beware that the port number is required for other player to join the server
+    Or put in a hosted server's IP address and port, then click Client to join
     
-[The Altspace Team](http://altvr.com/team/)
-    
-##Acknowledgements
+- Join as an Avatar
+  Once hosted or joined successfully, click on Join to join the world as an avatar.
+  
+- Avatar Control
+  WASD        : Move
+  Mouse Move  : 3D Cursor movement
+  Shift+ Mouse: Look around
+  
+  Left Click  : Interact with Highlighted Interactable Object. This will lock your movement temporalily
+  Right Click : Release from interaction of highlighter object
 
-*Assets used in this project are from* [Free Furniture Props](https://www.assetstore.unity3d.com/en/#!/content/8822)
+-Interactable Object Instruction
+  Sail Rope   : Control the speed of the ship. W/S to increase/decrease speed.
+  Sail Wheel  : Control the steer direction of the ship. A/D to steer left/right.
+  Cannon      : Fire cannon to destroy hostile pirate ship! Mouse movement to aim, Mouse Left Click to shoot. 
 
 
+## Notes on Design Choices
+- Referencing to the social objective, the control of the ship (sail rope and wheel) and cannons are intentionally scattered around the deck to encourage cooperation and communication between players.
+- The sailing rope and steer wheel was originally interacted by 3D cursor dragging, as a cursor enhancement, yet turn out to be quite awful to manipulate. So I would rather trade it off back to original WASD control.  
+- Cannons are designed with no aiming support, to both fit the genre, and let player enjoy blowing everything up.
+
+
+## Noticed Issue
+- Jiggling for client users when ship turns.
+  This is caused due to the current ship movement synchronization algorithm, it only interpolate prediction only takes moving velocity into account. The left over angular velocity thus caused significant error and caused jiggled warp correction.
+  If there is more time to implement the prediction with angular velocity, this problem might be solved.
+  
+- Player slip a bit when ship start to sail or stop.
+  This was caused by the ship inertia, players are physics objects stand on the ship rather than hard-coded bound to ship. This is not essentially a bug or issue, it actually created a level of feeling that player is stand on a sailing ship. Yet this might cause dizziness if player is wearing Oculus Rift, in such case, we might want to disable this feature and use hard-coded positions.
+
+  
+  
+# Acknowledgements
+Lists of Assets I used for Assignment 2 - Pirate Ocean
+
+## Unity Standard Assets
+  - Particle Effects
+  - Water(Pro)
+  - Skybox
+  - Detonator Explosion Pack
+  
+## Other Models
+  - Ship Model from cgmodel.cn
+  - Robot Model from Unity Asset Store Robot Kyle
+  - Island Terrain Pack from Unity Asset Store
+  - Kandol Free Particle Pack from Unity Asset Store
+  
+## Scripts
+  - Network Synchronization Code from my past project, reused roughly 50%
+  - Silhouette Outline Shader from Unity Wiki, modified as specular outline shader.
+  
+## Sound
+  - All free sound effects from http://soundbible.com/
+  - Background Music from League of Legend - BILGEWATER GANGPLANK Login Theme
+  
