@@ -7,14 +7,14 @@ public class Selectable : MonoBehaviour {
 	public Material NormalMaterial;
 	public Material HighlightMaterial;
 
-	private MeshRenderer[] meshRenderers;
+	protected MeshRenderer[] meshRenderers;
 
 	void Start()
 	{
 		this.meshRenderers = GetComponentsInChildren<MeshRenderer>();
 	}
 
-	void Update () {
+	protected virtual void Update () {
 		if (gameObject == CurrentSelection)
 		{
 			if (meshRenderers[0].sharedMaterial != HighlightMaterial)
