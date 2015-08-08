@@ -1,4 +1,4 @@
-# AltspaceVR Programming Project - Unity Cursor - Xin Ning  
+# AltspaceVR Unity Cursor - Xin Ning  
 
 ## Brief  
 For Assignment 1, I achieved the 3D cursor as described movement behaviour and shader   
@@ -46,7 +46,8 @@ Cursor Enhancement
 - Start a Game  
   To Start a game, do either  
 	- Start the application, and click Server to host a server. Beware that the port number is required for other player to join the server  
-  - Or put in a hosted server's IP address and port, then click Client to join
+	
+  	- Or put in a hosted server's IP address and port, then click Client to join
     
 - Join as an Avatar  
   Once hosted or joined successfully, click on Join to join the world as an avatar.
@@ -59,25 +60,25 @@ Cursor Enhancement
   Left Click  : Interact with Highlighted Interactable Object. This will lock your movement temporalily  
   Right Click : Release from interaction of highlighter object  
   
--Interactable Object Instruction  
+- Interactable Object Instruction  
   Sail Rope   : Control the speed of the ship. W/S to increase/decrease speed.  
   Sail Wheel  : Control the steer direction of the ship. A/D to steer left/right.  
   Cannon      : Fire cannon to destroy hostile pirate ship! Mouse movement to aim, Mouse Left Click to shoot.   
 
 
 ## Notes on Design Choices
-- Referencing to the social objective, the control of the ship (sail rope and wheel) and cannons are intentionally scattered around the deck to encourage cooperation and communication between players.  
-- The sailing rope and steer wheel was originally interacted by 3D cursor dragging, as a cursor enhancement, yet turn out to be quite awful to manipulate. So I would rather trade it off back to original WASD control.  
-- Cannons are designed with no aiming support, to both fit the genre, and let player enjoy blowing everything up.  
+- Referencing to the social objective, the control of the ship (sail rope and wheel) and cannons are intentionally scattered around the deck to encourage cooperation and communication between players. One player can not do it all by himself at the same time.  
+- The sailing rope and steer wheel was originally interacted by 3D cursor dragging, as a cursor enhancement, yet turn out to be quite awful to manipulate. So I decided to made the trade-off and and go back to original WASD control.  
+- Cannons are designed with no aiming support, to both fit the genre, and let player enjoy shooting tons of cannon balls.  
 
 
 ## Noticed Issue  
 - Jiggling for client users when ship turns.  
-  This is caused due to the current ship movement synchronization algorithm, it only interpolate prediction only takes moving velocity into account. The left over angular velocity thus caused significant error and caused jiggled warp correction.  
+  This is caused due to the current ship movement synchronization algorithm, it's interpolate prediction only takes moving velocity into account. The left over angular velocity caused significant error and lead to jiggled warp correction.  
   If there is more time to implement the prediction with angular velocity, this problem might be solved.  
   
 - Player slip a bit when ship start to sail or stop.  
-  This was caused by the ship inertia, players are physics objects stand on the ship rather than hard-coded bound to ship. This is not essentially a bug or issue, it created a level of feeling that player is stand on a sailing ship. Yet this might cause dizziness if player is wearing Oculus Rift, in such case, we might want to disable this feature and use hard-coded positions.  
+  This was caused by the ship inertia, players are physics objects stand on the ship rather than fixed to the ship. This is not essentially a bug or issue, it created a level of feeling that player is stand on a sailing ship. Yet this might cause dizziness if player is wearing Oculus Rift, in such case, we might want to disable this feature and fixed positions.  
 
   
   
