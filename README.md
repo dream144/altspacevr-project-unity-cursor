@@ -76,8 +76,8 @@ Cursor Enhancement
 
 ## Noticed Issue  
 - Jiggling for client users when ship turns.  
-  This is caused due to the current ship movement synchronization algorithm, it's interpolate prediction only takes moving velocity into account. The left over angular velocity caused significant error and lead to jiggled warp correction.  
-  If there is more time to implement the prediction with angular velocity, this problem might be solved.  
+  This is caused due to the current ship movement synchronization algorithm, it's interpolate prediction only takes moving velocity into account. The un-synchronized angular velocity caused significant error and lead to jiggled warp correction each several frames.  
+  If there is more time to implement the synchronization and prediction with angular velocity, this problem might be solved.  
   
 - Player slip a bit when ship start to sail or stop.  
   This was caused by the ship inertia, players are physics objects stand on the ship rather than fixed to the ship. This is not essentially a bug or issue, it created a level of feeling that player is stand on a sailing ship. Yet this might cause dizziness if player is wearing Oculus Rift, in such case, we might want to disable this feature and fixed positions.  
