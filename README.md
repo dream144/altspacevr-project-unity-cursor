@@ -43,6 +43,9 @@ Experience Goal
 Cursor Enhancement
 - Player is able to select and use objects, interact with them in network multiplayer environment
 
+Gameplay Video
+- You can check the gameplay video at Youtube
+  https://youtu.be/6S8Gdea1Mw8
 
 ## Control Instruction
 - Start a Game  
